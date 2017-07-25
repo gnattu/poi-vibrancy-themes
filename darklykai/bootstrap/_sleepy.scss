@@ -1,0 +1,690 @@
+// Sleepy 3.3.5
+// -----------------------------------------------------
+
+// Mixins =====================================================================
+
+@mixin btn($class, $bg, $color){
+  .btn-#{$class} {
+    background-color: $bg;
+    box-shadow: inset 0 -2px 0 $color;
+    &:hover {
+      background-color: darken($bg, 6%);
+    }
+    &:focus {
+      background-color: darken($bg, 6%);
+    }
+    &:active:hover {
+      background-color: darken($color, 6%);
+    }
+    &:active {
+      background-color: darken($bg, 12%);
+    }
+  }
+  .btn-#{$class}.disabled {
+    background-color: $bg;
+    box-shadow: inset 0 -2px 0 $color;
+    &:hover {
+      background-color: darken($bg, 6%);
+    }
+    &:focus {
+      background-color: darken($bg, 6%);
+    }
+    &:active:hover {
+      background-color: darken($color, 6%);
+    }
+    &:active {
+      background-color: darken($bg, 12%);
+    }
+  }
+  .btn-#{$class}.active {
+    background-color: darken($color, 6%);
+  }
+}
+
+@mixin label($class, $bg, $color) {
+  .label-#{$class} {
+    background-color: $bg;
+    color: $color;
+  }
+}
+
+// Navbar =====================================================================
+
+.navbar {
+  border-width: 0;
+
+  &-default {
+
+    .badge {
+      background-color: #fff;
+      color: $navbar-default-bg;
+    }
+  }
+
+  &-inverse {
+
+    .badge {
+      background-color: #fff;
+      color: $navbar-inverse-bg;
+    }
+  }
+
+  &-brand {
+    line-height: 1;
+  }
+
+  &-form {
+    .form-control {
+      background-color: white;
+
+      &:focus {
+        border-color: white;
+      }
+    }
+  }
+}
+
+// Buttons ====================================================================
+
+.btn {
+  border-width: 0px;
+  &:focus,
+  &:hover,
+  &:active:hover,
+  &:active {
+    outline: 0px;
+  }
+  @include box-shadow(none);
+  @include transition(all 0.3s);
+}
+
+.btn-group.open .dropdown-toggle {
+  @include box-shadow(none);
+}
+
+@include btn(default, $btn-default-bg, darken($btn-default-bg, 5%));
+@include btn(primary, $btn-default-bg, darken($btn-primary-bg, 5%));
+@include btn(success, $btn-default-bg, darken($btn-success-bg, 5%));
+@include btn(info, $btn-default-bg, darken($btn-info-bg, 5%));
+@include btn(warning, $btn-default-bg, darken($btn-warning-bg, 5%));
+@include btn(danger, $btn-default-bg, darken($btn-danger-bg, 5%));
+
+// Typography =================================================================
+
+.text-primary,
+.text-primary:hover {
+  color: lighten($brand-primary, 10%);
+}
+
+.text-success,
+.text-success:hover {
+  color: $brand-success;
+}
+
+.text-danger,
+.text-danger:hover {
+  color: $brand-danger;
+}
+
+.text-warning,
+.text-warning:hover {
+  color: $brand-warning;
+}
+
+.text-info,
+.text-info:hover {
+  color: $brand-info;
+}
+
+// Tables =====================================================================
+
+table,
+.table {
+
+  a {
+    text-decoration: none;
+  }
+
+  .success,
+  .warning,
+  .danger,
+  .info {
+    color: #fff;
+
+    > th > a,
+    > td > a,
+    > a {
+      color: #fff;
+    }
+  }
+
+  > thead > tr > th,
+  > tbody > tr > th,
+  > tfoot > tr > th,
+  > thead > tr > td,
+  > tbody > tr > td,
+  > tfoot > tr > td {
+    border: none;
+  }
+
+  &-bordered > thead > tr > th,
+  &-bordered > tbody > tr > th,
+  &-bordered > tfoot > tr > th,
+  &-bordered > thead > tr > td,
+  &-bordered > tbody > tr > td,
+  &-bordered > tfoot > tr > td {
+    border: 1px solid $table-border-color;
+  }
+}
+
+// Forms ======================================================================
+
+input,
+textarea {
+  color: $input-color;
+}
+
+.form-control,
+input,
+textarea {
+  border: 0px hidden transparent;
+  @include box-shadow(none);
+
+  &:focus {
+    @include box-shadow(none);
+  }
+}
+
+label {
+  font-weight: normal;
+}
+
+textarea,
+textarea.form-control,
+input.form-control,
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=number],
+[type=text].form-control,
+[type=password].form-control,
+[type=email].form-control,
+[type=tel].form-control,
+[contenteditable].form-control {
+  background-color: $gray-dark;
+  color: $text-color;
+  &:focus {
+  }
+  &[disabled],
+  &[readonly] {
+    @include box-shadow(none);
+    border-bottom: 1px dotted #ddd;
+  }
+  &.input {
+    &-sm {
+      font-size: $font-size-small;
+    }
+    &-lg {
+      font-size: $font-size-large;
+    }
+  }
+}
+
+select,
+select.form-control {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: $gray-dark;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAMAAACelLz8AAAAJ1BMVEVmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmaP/QSjAAAADHRSTlMAAgMJC0uWpKa6wMxMdjkoAAAANUlEQVR4AeXJyQEAERAAsNl7Hf3X6xt0QL6JpZWq30pdvdadme+0PMdzvHm8YThHcT1H7K0BtOMDniZhWOgAAAAASUVORK5CYII=);
+  background-size: 14px;
+  background-repeat: no-repeat;
+  background-position: right center;
+  font-size: $font-size-base;
+
+  &::-ms-expand {
+    display: none;
+  }
+
+  &.input {
+    &-sm {
+      font-size: $font-size-small;
+    }
+
+    &-lg {
+      font-size: $font-size-large;
+    }
+  }
+
+  &[multiple] {
+    background-color: $gray;
+    background-image: none;
+    color: $text-color;
+  }
+}
+
+.radio,
+.radio-inline,
+.checkbox,
+.checkbox-inline {
+  label {
+    padding-left: 25px;
+  }
+
+  input[type="radio"],
+  input[type="checkbox"] {
+    margin-left: -25px;
+  }
+}
+
+input[type="radio"],
+.radio input[type="radio"],
+.radio-inline input[type="radio"] {
+  position: relative;
+  margin-top: 3px;
+  margin-right: 3px;
+  vertical-align: top;
+  border: none;
+  background-color: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:before,
+  &:after {
+    content: "";
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    @include transition(240ms);
+  }
+
+  &:before {
+    position: absolute;
+    left: 0;
+    top: -3px;
+    background-color: $brand-primary;
+    @include scale(0);
+  }
+
+  &:after {
+    position: relative;
+    top: -3px;
+    border: 2px solid $gray;
+  }
+
+  &:checked:before {
+    @include scale(0.5);
+  }
+
+  &:disabled:checked:before {
+    background-color: $gray-light;
+  }
+
+  &:checked:after {
+    border-color: $brand-primary;
+  }
+
+  &:disabled:after,
+  &:disabled:checked:after {
+    border-color: $gray-light;
+  }
+}
+
+input[type="checkbox"],
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"] {
+  position: relative;
+  border: none;
+  margin-bottom: -4px;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus:after {
+    border-color: $brand-primary;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    width: 18px;
+    height: 18px;
+    margin-top: -2px;
+    margin-right: 5px;
+    border: 2px solid $gray;
+    border-radius: 2px;
+    @include transition(240ms);
+  }
+
+  &:checked:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 6px;
+    display: table;
+    width: 6px;
+    height: 12px;
+    border: 2px solid #fff;
+    border-top-width: 0;
+    border-left-width: 0;
+    @include rotate(45deg);
+  }
+
+  &:checked:after {
+    background-color: $brand-primary;
+    border-color: $brand-primary;
+  }
+
+  &:disabled:after {
+    border-color: $gray-light;
+  }
+
+  &:disabled:checked:after {
+    background-color: $gray-light;
+    border-color: transparent;
+  }
+}
+
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  padding-right: 10px;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANBAMAAACAxflPAAAAJFBMVEVmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmaS4ba/AAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQffBwMSCjhCZlCuAAAAJUlEQVQI12NgYGAQYAADRkEILSgoAOEKQgWIA3D1UP1w88DmAwA3sAERwrRg4QAAAABJRU5ErkJggg==) no-repeat center center;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  border-radius: 0;
+  outline: none;
+  background-color: $gray-darker;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: none;
+}
+input[type=range]:focus,
+input[type=range]:active,
+input[type=range]:hover {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: none;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-top: -5px;
+  background-color: $text-color;
+  cursor: pointer;
+  -webkit-transition: background 0.15s ease-in-out;
+  transition: background 0.15s ease-in-out;
+}
+input[type=range]::-webkit-slider-thumb:hover {
+  background-color: $gray;
+}
+input[type=range]:active::-webkit-slider-thumb {
+  background-color: $gray;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  border-radius: 0;
+  background-color: $gray;
+  cursor: pointer;
+  -webkit-transition: background 0.15s ease-in-out;
+  transition: background 0.15s ease-in-out;
+}
+
+.has-warning {
+  .help-block,
+  .control-label,
+  .radio,
+  .checkbox,
+  .radio-inline,
+  .checkbox-inline,
+  &.radio label,
+  &.checkbox label,
+  &.radio-inline label,
+  &.checkbox-inline label,
+  .form-control-feedback {
+    color: $brand-warning;
+  }
+
+  .form-control,
+  .form-control:focus {
+    @include box-shadow(none);
+  }
+
+  .input-group-addon {
+    border-color: $brand-warning;
+  }
+}
+
+.has-error {
+  .help-block,
+  .control-label,
+  .radio,
+  .checkbox,
+  .radio-inline,
+  .checkbox-inline,
+  &.radio label,
+  &.checkbox label,
+  &.radio-inline label,
+  &.checkbox-inline label,
+  .form-control-feedback {
+    color: $brand-danger;
+  }
+
+  .form-control,
+  .form-control:focus {
+    @include box-shadow(none);
+  }
+
+  .input-group-addon {
+    border-color: $brand-danger;
+  }
+}
+
+.has-success {
+  .help-block,
+  .control-label,
+  .radio,
+  .checkbox,
+  .radio-inline,
+  .checkbox-inline,
+  &.radio label,
+  &.checkbox label,
+  &.radio-inline label,
+  &.checkbox-inline label,
+  .form-control-feedback {
+    color: $brand-success;
+  }
+
+  .form-control,
+  .form-control:focus {
+    @include box-shadow(none);
+  }
+
+  .input-group-addon {
+    border-color: $brand-success;
+  }
+}
+
+.input-group-addon {
+  color: $text-color;
+}
+
+// Navs =======================================================================
+
+.nav {
+  .open > a,
+  .open > a:hover,
+  .open > a:focus {
+    border-color: $nav-tabs-border-color;
+  }
+}
+
+.nav-tabs > li > a,
+.nav-pills > li > a {
+  color: #fff;
+}
+
+.nav-pills > li.active > a {
+  background-color: $gray-dark;
+  box-shadow: inset 0 -2px 0 $brand-primary;
+  &:hover {
+    background-color: darken($gray-dark, 6%);
+  }
+  &:focus {
+    background-color: darken($gray-dark, 6%);
+  }
+  &:active:hover {
+    background-color: darken($brand-primary, 6%);
+  }
+  &:active {
+    background-color: darken($gray-dark, 12%);
+  }
+}
+
+.pager {
+  a,
+  a:hover {
+    color: #fff;
+  }
+
+  .disabled {
+    &>a,
+    &>a:hover,
+    &>a:focus,
+    &>span {
+      background-color: $pagination-disabled-bg;
+    }
+  }
+}
+
+.breadcrumb a {
+  color: #fff;
+}
+
+// Indicators =================================================================
+
+.close {
+  text-decoration: none;
+  text-shadow: none;
+  opacity: 0.4;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+}
+
+.alert {
+  .alert-link {
+    text-decoration: none;
+  }
+}
+.alert-history {
+  background-color: rgba(0,0,0,0.5) !important;
+}
+
+.alert-info {
+  color: white !important;
+}
+
+.slotitem-onslot {
+  background-color: $gray-lighter !important;
+}
+// Progress bars ==============================================================
+
+.progress {
+  height: 10px;
+  @include box-shadow(none);
+  .progress-bar {
+    font-size: 10px;
+    line-height: 10px;
+  }
+}
+
+// Containers =================================================================
+
+.well {
+  @include box-shadow(none);
+}
+
+a.list-group-item {
+
+  &.active,
+  &.active:hover,
+  &.active:focus {
+    border-color: $list-group-border;
+  }
+
+  &-success {
+    &.active {
+      background-color: $state-success-bg;
+    }
+
+    &.active:hover,
+    &.active:focus {
+      background-color: darken($state-success-bg, 5%);
+    }
+  }
+
+  &-warning {
+    &.active {
+      background-color: $state-warning-bg;
+    }
+
+    &.active:hover,
+    &.active:focus {
+      background-color: darken($state-warning-bg, 5%);
+    }
+  }
+
+  &-danger {
+    &.active {
+      background-color: $state-danger-bg;
+    }
+
+    &.active:hover,
+    &.active:focus {
+      background-color: darken($state-danger-bg, 5%);
+    }
+  }
+}
+
+.popover {
+  color: $text-color;
+}
+
+.panel-default > .panel-heading {
+  background-color: $panel-footer-bg;
+}
+
+// Labels =====================================================================
+@include label(primary, $label-default-bg, lighten($brand-info, 10%));
+@include label(success, $label-default-bg, lighten($brand-success, 10%));
+@include label(warning, $label-default-bg, lighten($brand-warning, 10%));
+@include label(info, $label-default-bg, lighten($brand-info, 10%));
+@include label(danger, $label-default-bg, lighten($brand-danger, 10%));
+
+// Scrollbar ==================================================================
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(248, 248, 242, 0.2);
+  border-radius: $border-radius-base;
+  border: 1px solid rgba(248, 248, 242, 0.15);
+}
