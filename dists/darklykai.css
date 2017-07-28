@@ -6523,7 +6523,7 @@ input[type=range]::-webkit-slider-runnable-track {
   text-decoration: none; }
 
 .alert-history {
-  background-color: rgba(0, 0, 0, 0.5) !important; }
+  background-color: rgba(0, 0, 0, 0.8) !important; }
 
 .alert-info {
   color: white !important; }
