@@ -9,6 +9,7 @@ darklykai | [Magica](https://github.com/magicae) | MIT | [source](https://raw.gi
 paperdark | [rui](https://github.com/ruiii) | MIT | [source](https://raw.githubusercontent.com/ruiii/poi_theme_paper_dark/master/paperdark.css) |
 papercyan | [govizlora](https://github.com/govizlora) | MIT | [source](https://raw.githubusercontent.com/govizlora/theme-papercyan/master/papercyan.css) |
 paperblack | [Artoria](https://github.com/Artoria-0x04) | MIT | [source](https://raw.githubusercontent.com/Artoria-0x04/paperblack/master/css/paperblack.css) |
+lumendark | [Artoria](https://github.com/Artoria-0x04) | MIT | [source](https://raw.githubusercontent.com/Artoria-0x04/poi-theme-lumendark/master/lumendark.css) |
 darkly | bootswatch | MIT | [source](https://bootswatch.com/darkly/bootstrap.css) |
 slate | bootswatch | MIT | [source](https://bootswatch.com/slate/bootstrap.css) |
 
