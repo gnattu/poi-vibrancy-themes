@@ -12,6 +12,7 @@ paperblack | [Artoria](https://github.com/Artoria-0x04) | MIT | [source](https:/
 lumendark | [Artoria](https://github.com/Artoria-0x04) | MIT | [source](https://raw.githubusercontent.com/Artoria-0x04/poi-theme-lumendark/master/lumendark.css) |
 darkly | bootswatch | MIT | [source](https://bootswatch.com/darkly/bootstrap.css) |
 slate | bootswatch | MIT | [source](https://bootswatch.com/slate/bootstrap.css) |
+superhero | bootswatch | MIT | [source](https://bootswatch.com/superhero/bootstrap.css) |
 
 ## License
 MIT
