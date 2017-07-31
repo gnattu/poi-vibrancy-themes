@@ -1,7 +1,9 @@
 # poi-vibrancy-themes
-Enable macOS Vibrancy on poi themes
+Enable macOS Vibrancy and custom background on poi themes
 
 ## Currently supported theme:
+
+Includes all dark themes included by poi
 
 Name | Author | License | Source | Comment
 -----| ------ | ------- | ------ | -------
