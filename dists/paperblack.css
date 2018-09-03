@@ -7549,3 +7549,6 @@ label {
 #teitoku-timer {
   background-color: rgba(255, 255, 255, 0.13) !important;
 }
+poi-app#poi-app-overlay {
+  background-color: rgba(120, 120, 120, 0.9);
+}

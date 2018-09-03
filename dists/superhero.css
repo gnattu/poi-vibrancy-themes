@@ -7023,3 +7023,6 @@ a.list-group-item-danger.active:focus {
 .popover-title {
   border: none;
 }
+poi-app#poi-app-overlay {
+  background-color: rgba(43, 62, 80, 0.8);
+}
